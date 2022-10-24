@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-MAINTAINER Lilia Sfaxi <liliasfaxi@gmail.com>
+MAINTAINER Yasser Alami <yassern1@gmail.com>
 
 WORKDIR /root
 
@@ -30,11 +30,6 @@ RUN wget https://archive.apache.org/dist/hbase/1.4.9/hbase-1.4.9-bin.tar.gz  && 
     tar -zxvf hbase-1.4.9-bin.tar.gz && \
     mv hbase-1.4.9 /usr/local/hbase && \
     rm hbase-1.4.9-bin.tar.gz
-
-# copy the test files
-RUN wget https://mohetn-my.sharepoint.com/:t:/g/personal/lilia_sfaxi_insat_u-carthage_tn/EWdosZTuyDtEiqcjpqbY_loBlfQbIQWp8Zq7PPKSAE1sjQ?e=O3TNLR && \ 
-    wget  https://mohetn-my.sharepoint.com/:t:/g/personal/lilia_sfaxi_insat_u-carthage_tn/EexZfjSnlShAqDig-0efjbkBJRiHqN0POQt0t4fvXhb7Dw?e=af6lAZ
-
 
 # set environment variables
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 
