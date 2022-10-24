@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-MAINTAINER Yasser Alami <yassern1@gmail.com>
+MAINTAINER Yasser ALAMI <yassern1@gmail.com>
 
 WORKDIR /root
 
@@ -8,16 +8,16 @@ WORKDIR /root
 RUN apt-get update && apt-get install -y openssh-server openjdk-8-jdk wget vim
 
 # install hadoop 2.7.2
-RUN wget https://github.com/kiwenlau/compile-hadoop/releases/download/2.7.2/hadoop-2.7.2.tar.gz && \
-    tar -xzvf hadoop-2.7.2.tar.gz && \
+RUN wget https://archive.apache.org/dist/hadoop/common/hadoop-2.7.2/hadoop-2.7.2.tar.gz && \
+    tar xzf hadoop-2.7.2.tar.gz && \
     mv hadoop-2.7.2 /usr/local/hadoop && \
     rm hadoop-2.7.2.tar.gz
 
 # install spark
-RUN wget https://d3kbcqa49mib13.cloudfront.net/spark-2.2.0-bin-hadoop2.7.tgz && \
-    tar -xvf spark-2.2.0-bin-hadoop2.7.tgz && \
+RUN wget https://archive.apache.org/dist/spark/spark-2.2.0/spark-2.2.0-bin-hadoop2.7.tgz && \
+    tar -xvf spark-2.2.0-bin-hadoop2.7.tgz   && \
     mv spark-2.2.0-bin-hadoop2.7 /usr/local/spark && \
-    rm spark-2.2.0-bin-hadoop2.7.tgz
+    rm spark-2.2.0-bin-hadoop2.7.tgz 
 
 # install kafka
 RUN wget https://archive.apache.org/dist/kafka/1.0.2/kafka_2.11-1.0.2.tgz && \
@@ -76,5 +76,4 @@ RUN chmod +x ~/start-hadoop.sh && \
 RUN /usr/local/hadoop/bin/hdfs namenode -format
 
 CMD [ "sh", "-c", "service ssh start; bash"]
-
 
